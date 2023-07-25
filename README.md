@@ -68,3 +68,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### `Agregando contenido al README`
+Esta sección es simplemente para agregar contenido por mi cuenta, estoy haciendo pruebas con Git y quiero ver sin alterar el resto de los archivos como queda esto.
