@@ -6,6 +6,7 @@ import axios from "axios";
 import {Routes, Route} from "react-router-dom";
 import About from "./components/About/About";
 import Detail from "./components/Detail/Detail";  
+import Error from "./components/Error/Error";
 
 const URL_BASE = "https://rickandmortyapi.com/api/character";
 const URL_NEW = "https://be-a-rym.up.railway.app/api/character";
@@ -37,6 +38,7 @@ function App() {
         <Route path = "/home" element={<Cards characters={characters} onClose={onClose} />}></Route>
         <Route path ="/about" element={<About/>}></Route>
         <Route path ="/Detail/:id" element={<Detail/>}></Route>
+        <Route path ="*" element={<Error/>}></Route>
 
       </Routes>
     </div>
