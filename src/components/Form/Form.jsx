@@ -1,6 +1,6 @@
 import {useState}from 'react';
-import validation from './validation/validation.jsx';
-const Form = () => {
+import validation from '../validation/validation';
+const Form = ({login}) => {
     const [errors, setErrors] = useState({});
     const [userData, setUserData] = useState({email:" ", password:"" });
     const handleChange = (event) => {
@@ -8,17 +8,22 @@ const Form = () => {
         ...userData,
         [event.target.name]:event.target.value
        })
+
        setErrors(validation({...userData,
          [event.target.name]: event.target.value 
         }))
         
     }
     
-    
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      login(userData);
+    }
     
     
     return (
-    <form>
+    <form onSubmit={handleSubmit}>
+            
             <label htmlFor="email">Email: </label>
             <input type="email"name ="email" value={userData.email} onChange={handleChange}/>
             {errors.email && <p>{errors.email}</p>}
