@@ -1,11 +1,9 @@
-import { NavLink } from "react-router-dom";
-const Error = () => {
+import { NavLink } from "react-router-dom"; 
+const Error = ()=>{
     return(
         <div>
-            <h1>Error, this is not a valid page, please go to Home Page</h1>
-            <NavLink to="/">Go to Home</NavLink>    </div>
+            <h2>This page does not exist. Please go back to the <NavLink to="">homepage</NavLink>.</h2>
+        </div>  
     )
-    
 }
-
 export default Error;
