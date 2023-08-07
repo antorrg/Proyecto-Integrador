@@ -27,6 +27,8 @@ function App() {
     
     }
   }
+
+ 
   useEffect(() => {
     !access && navigate('/');
    },[access]);
@@ -40,6 +42,8 @@ function App() {
        }
     });
  }
+ 
+ 
 
   //const onClose = () => window.alert("Emulamos que se cierra la card");
   const onClose =(id)=>{
@@ -51,7 +55,7 @@ function App() {
   return (
     <div className="App">
       {
-        location.pathname !== '/' ? <Nav onSearch={onSearch} /> : null
+        location.pathname !== '/' && <Nav onSearch={onSearch} setAccess = {setAccess} /> 
       }
       <Routes>
         <Route path ="/" element={<Form login= {login}/>}></Route>
