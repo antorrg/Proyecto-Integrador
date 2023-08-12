@@ -1,18 +1,61 @@
-import { NavLink } from "react-router-dom"; 
+import { NavLink, useLocation } from "react-router-dom"; 
+import { addFav, removeFav } from "../../redux/actions";
+import {connect}from 'react-redux';
+import {useState, useEffect} from 'react';
 
-export default function Card({ character, onClose }) {
-   const { id, name, species, gender, origin, image, status } = character;
-   console.log(character, onClose);
+
+
+const Card =({character, onClose, addFavorites, removeFavorites, myFavorites})=> {
+   const { id, name, image,} = character;
+   //console.log(character, onClose);
+  
+   useEffect(() => {
+    myFavorites.forEach((fav) => {
+       if (fav.id === id) {
+          setIsFav(true);
+       }
+    });
+  }, [myFavorites]);
+
+  console.log(character)
+   const [IsFav, setIsFav]= useState (false);
+   
+   const handleFavorite=()=>{
+      if(IsFav){
+        setIsFav(false);
+        removeFavorites(id);
+      }
+      else{
+        setIsFav(true);
+        addFavorites(id, name,image);
+      }
+   }
+   
    return (
      <div id={id}>
-       <button onClick={()=> onClose(id)}>X</button>
+       {useLocation().pathname === "/home" && <button onClick={() => onClose(id)}>X</button>}
+       <button onClick={handleFavorite}>{IsFav ? '❤️' : '🤍'}</button>
        <NavLink to={`/detail/${id}`} ><h2 className="card-name">{name}</h2></NavLink>
-       {/*<h2>{status}</h2>
-       <h2>{species}</h2>
-       <h2>{gender}</h2>
-       <h2>{origin.name}</h2>*/}
-       <img src={image} alt="Not found" />
+       <img src={image} alt="Image not found" />
        
      </div>
    );
  }
+
+function mapDispatchToProps(dispatch){
+  return {
+     addFavorites: function (character){
+        dispatch(addFav(character))
+     },
+     removeFavorites: function (id){
+        dispatch(removeFav(id))
+     }
+  }
+}
+
+function mapStateToProps(state){
+    return{
+      myFavorites:state.myFavorites
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps )(Card)

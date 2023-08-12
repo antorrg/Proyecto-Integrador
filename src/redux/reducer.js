@@ -7,9 +7,9 @@ const initialState ={
 const reducer = (state= initialState, {type, payload})=>{
     switch(type){
         case ADD_FAV:
-        return {... state, myFavorites: [...state.myFavorites, payload]}
+        return {...state, myFavorites: [...state.myFavorites, payload]}
         case REMOVE_FAV: 
-        return {...state, myFavorites:state.myFavorites.filter(fav =>fav.id !== payload)}
+        return {...state, myFavorites:state.myFavorites.filter(char =>char.id !==Number(payload))}
         default: 
         return {...state}
     }

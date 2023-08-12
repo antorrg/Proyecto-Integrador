@@ -20,6 +20,9 @@ const Nav = ({onSearch,setAccess}) => {
                 <button onClick = {()=>out()}>
                     <NavLink to = "/">LOG OUT</NavLink>
                 </button>
+                <button>
+                    <NavLink to = "/Favorites">Favorites</NavLink>
+                </button>
                     
         </div>
     )
