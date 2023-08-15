@@ -24,4 +24,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Favorites);
+export default connect(mapStateToProps,null)(Favorites);

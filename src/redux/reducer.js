@@ -2,6 +2,7 @@ import {ADD_FAV, REMOVE_FAV}from "./action-types";
 
 const initialState ={
    myFavorites: []
+   
 }
 
 const reducer = (state= initialState, {type, payload})=>{

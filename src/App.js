@@ -61,7 +61,6 @@ function App() {
 };
  
 
-  //const onClose = () => window.alert("Emulamos que se cierra la card");
   const onClose =(id)=>{
     const characterFiltered = characters.filter((char)=>char.id !== Number(id));
     setCharacters(characterFiltered);
