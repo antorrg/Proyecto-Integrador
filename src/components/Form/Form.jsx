@@ -32,6 +32,8 @@ const Form = ({login}) => {
             <input type="text" name = 'password' value={userData.password} onChange={handleChange}/>
             {errors.password && <p>{errors.password}</p>}
             <button>Submit</button>
+            <hr></hr>
+            <p>(Dejo aquí los datos de ingreso para facilitarme la tarea hasta terminar el proyecto) Email: "abs@gmail.com"; Pass: "123456".</p>
     </form>
   );
 
