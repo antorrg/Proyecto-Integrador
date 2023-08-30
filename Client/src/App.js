@@ -12,7 +12,7 @@ import About from "./components/About/About";
 import Favorites from "./components/Favorites/Favorites"
 
 const URL_BASE = "https://rickandmortyapi.com/api/character";
-const URL_NEW = "https://be-a-rym.up.railway.app/api/character";
+const URL_NEW = "http://localhost:3001/rickandmorty/character/${id}";
 const API_KEY= "";
 const email = "abs@gmail.com";
 const password = "123456";
@@ -42,7 +42,7 @@ function App() {
     return;
   }
 
-  axios(`https://rickandmortyapi.com/api/character/${id}`)
+  axios(`http://localhost:3001/rickandmorty/character/${id}`)
     .then(({ data }) => {
       const characterExists = characters.some((character) => character.id === data.id);
       if (data.id) {
