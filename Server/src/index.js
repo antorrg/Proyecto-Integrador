@@ -1,6 +1,6 @@
 const http = require('http');
 //const data = require('./utlils/data.js')
-const getCharById= require('.controlers/getCharById.js');
+const getCharById = require('./controlers/getCharById.js');
 const PORT = 3001
 
 http.createServer((req, res)=> {
@@ -16,22 +16,20 @@ http.createServer((req, res)=> {
     // }
 
      if (url.includes("/rickandmorty/character")){
+         const id = Number(url.split("/").pop())
+         getCharById(res, id)
+        }
+        else {
+        res.writeHead(400, {'Content-type': 'application/json'})
+        res.end(JSON.stringify({error: "Route not found"}))
+        }
+         
+        //const character = data.find(char => char.id === id)
 
-        const id = Number(url.split("/").pop())
-        getCharById(res,id)
-
-        const character = data.find(char => char.id === id)
-
-        if (character){
-         res.writeHead(200, {'Content-type': 'application/json'})
-         res.end(JSON.stringify(character))
-        } 
-        //else {
-/     //res.writeHead(400, {'Content-type': 'application/json'})
-        // res.end(JSON.stringify({error: "Character not found"}))
-        //}
-    
-  }
+        // if (character){
+        //  res.writeHead(200, {'Content-type': 'application/json'})
+        //  res.end(JSON.stringify(character))
+        // } 
   
 }).listen(PORT, () => {
     console.log(`Servidor corriendo en puerto ${PORT}`)})

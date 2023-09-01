@@ -2,7 +2,7 @@ const axios = require('axios');
 
 
 const getCharById = (res, id) => {
- axios.get(`https://rickandmortyapi.com/api/character/:${id}`)
+ axios.get(`https://rickandmortyapi.com/api/character/${id}`)
     .then(({data}) =>{
         const {name, status, species, origin = origin.name, gender, image} = data;
         const character ={name, gender, origin, species, image, id, status}
