@@ -1,5 +1,7 @@
+import styles from './Form.module.css';
 import {useState}from 'react';
 import validation from '../validation/validation';
+//Formulario para iniciar sesión
 const Form = ({login}) => {
     const [errors, setErrors] = useState({});
     const [userData, setUserData] = useState({email:" ", password:"" });
@@ -22,7 +24,8 @@ const Form = ({login}) => {
     
     
     return (
-    <form onSubmit={handleSubmit}>
+    <div className={styles.body}>
+    <form onSubmit={handleSubmit} className={styles.text}>
             
             <label htmlFor="email">Email: </label>
             <input type="email"name ="email" value={userData.email} onChange={handleChange}/>
@@ -35,6 +38,7 @@ const Form = ({login}) => {
             <hr></hr>
             <p>(Dejo aquí los datos de ingreso para facilitarme la tarea hasta terminar el proyecto) Email: "abs@gmail.com"; Pass: "123456".</p>
     </form>
+    </div>
   );
 
 }

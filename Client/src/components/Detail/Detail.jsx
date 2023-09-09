@@ -1,6 +1,9 @@
 import axios from "axios";
 import {useEffect, useState } from "react";
 import {useParams} from "react-router-dom";
+import style from "./Detail.module.css"
+
+
 
 
 
@@ -21,7 +24,7 @@ const Detail =()=>{
     return(
         <div>
         
-                <div>
+                <div className={style.text}>
                  <h2>Name: {character?.name}</h2>
                  <h2>Status: {character?.status}</h2>
                  <h2>Specie: {character?.species}</h2>
