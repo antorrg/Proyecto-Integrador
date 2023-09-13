@@ -17,7 +17,7 @@ server.use(express.json());
 server.use("/rickandmorty", router);
 
 server.listen(PORT, () => {
-  console.log(`Server is running on: http://localhost:${PORT}`);
+  console.log(`El Server está corriendo en: http://localhost:${PORT}`);
 });
 
 //! Código WebServer

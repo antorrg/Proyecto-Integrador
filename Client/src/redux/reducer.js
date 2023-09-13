@@ -29,6 +29,11 @@ const reducer = (state= initialState, {type, payload})=>{
             return{
                 ...state,
                 myFavorites: favoritesFiltered}
+    //     case FILTER:
+    //   return {
+    //     ...state,
+    //     myFavorites: payload === "All" ? [...state.allFavorites] : state.allFavorites.filter(character => character.gender === payload),
+    //   };        
 
 
         case ORDER:

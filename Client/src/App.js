@@ -29,8 +29,23 @@ function App() {
     
     }
   }*/
+ //Con async/await:
+ async function login({ email, password }) {
+  const URL = "http://localhost:3001/rickandmorty/login/";
+  try {
+    const { data } = await axios(
+      URL + `?email=${email}&password=${password}`
+    );
+    const { access } = data;
+    setAccess(data);
+    access && navigate("/home");
+  } catch (error) {
+    alert("El email y el password no coinciden.");
+  }
+}
 
-  function login(userData) {
+  //Con Promises:
+  /*function login(userData) {
     const { email, password } = userData;
     const URL = 'http://localhost:3001/rickandmorty/login/';
     axios(`${URL}?email=${email}&password=${password}`).then(({ data }) => {
@@ -38,19 +53,41 @@ function App() {
        setAccess(access);
        access && navigate('/home');
     });
- }
+ }*/
 
  
   useEffect(() => {
     !access && navigate('/');
    },[access]);
-  
- 
- const onSearch = (id) => {
+ //onSearch con async/await:
+ const onSearch = async (id) => {
   if (isNaN(id)) {
-    alert("Por favor, ingresa un número válido como ID.");
+    alert("Por favor, ingrese un número como ID.");
     return;
   }
+   try {const {data} = await axios(`http://localhost:3001/rickandmorty/character/${id}`);
+   const characterExists = characters.some((character) => character.id === data.id);
+   if (data.id) {
+     if (characterExists) {
+       alert("Este personaje ya se encuentra en la lista.");
+     } else {
+      setCharacters((characters) => [...characters, data]);
+     }
+    }else {
+      alert(`¡No hay personajes con ese ID!`);
+    }
+  }catch (error) {
+      alert('Ocurrió un error al obtener los datos. Por favor, intente nuevamente más tarde.');
+   }
+ }  
+  
+ //onSearch con Promises:
+/*  const onSearch = (id) => {
+  if (isNaN(id)) {
+    alert("Por favor, ingrese un número como ID.");
+    return;
+  }
+
 
   axios(`http://localhost:3001/rickandmorty/character/${id}`)
     .then(({ data }) => {
@@ -66,13 +103,13 @@ function App() {
       }
     })
     .catch((error) => {
-      alert('Ocurrió un error al obtener los datos de la API. Por favor, intenta nuevamente más tarde.');
+      alert('Ocurrió un error al obtener los datos. Por favor, intente nuevamente más tarde.');
     });
-};
+  };*/
  
 
   const onClose =(id)=>{
-    const characterFiltered = characters.filter((char)=>char.id !== Number(id));
+    const characterFiltered = characters.filter((char)=>char.id !== id);
     setCharacters(characterFiltered);
   
   }
