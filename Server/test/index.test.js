@@ -36,4 +36,32 @@ const agent = session(server);
         //WebPT13b, code review con Auri.
 
     })
+
+    describe('POST /rickandmorty/fav', () => {
+        const character1={id:'1', name:'Rick Sanchez'}
+        const character2={id:'2', name:'Morty Smith'}
+        it('Devuelve el personaje enviado por body', async ()=>{
+            const response = (await agent.post('/rickandmorty/fav').send(character1)).body;
+            expect(response).toContainEqual(character1)
+        })
+        it('Debe devolver el o los personajes previos y el actual', async () => {
+            const response = (await agent.post('/rickandmorty/fav').send(character2)).body;
+            expect(response).toContainEqual(character1)
+            expect(response).toContainEqual(character2)
+        })
+    })    
+    describe('Delete /rickandmorty/fav/:id', () => {
+        const character1={id:'1', name:'Rick Sanchez'}
+        const character2={id:'2', name:'Morty Smith'}
+        it('Devuelve el arreglo completo si no se eliminan personajes', async () => {
+            const response = (await agent.delete('/rickandmorty/fav/50')).body;
+            expect(response).toContainEqual(character1)
+            expect(response).toContainEqual(character2)
+        })
+        it('Elimina correctamente el personaje', async () => {
+            const response = (await agent.delete('/rickandmorty/fav/1')).body;
+            expect(response).not.toContainEqual(character1)
+            expect(response).toContainEqual(character2)
+        })
+    })
  })
