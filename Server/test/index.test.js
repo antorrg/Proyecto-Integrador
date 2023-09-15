@@ -33,8 +33,6 @@ const agent = session(server);
             const response = (await (agent.get('/rickandmorty/login?email=mtr@rajen.com&password=sereje'))).body;
             expect(response.access).toBeFalsy();
         })
-        //WebPT13b, code review con Auri.
-
     })
 
     describe('POST /rickandmorty/fav', () => {

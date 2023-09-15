@@ -7,8 +7,9 @@
     "test": "test"
   },
   "scripts": {
-    "start": "nodemon ./src/index.js",
-    "test": "jest --detectOpenHandles --coverage"
+    "start": "node ./src/index.js",
+    "test": "jest --detectOpenHandles --coverage",
+    "dev": "nodemon ./src/index.js"
   },
   "keywords": [],
   "author": "Antonio Rodriguez",
