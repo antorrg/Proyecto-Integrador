@@ -1,5 +1,5 @@
 const e = require('express');
-const server = require('../src/app');
+const server = require('../app');
 const session = require('supertest');
 const agent = session(server);
  

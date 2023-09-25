@@ -1,10 +1,18 @@
 const server = require("./app");
+const {database} = require("./src/DB_connection");
+require("dotenv").config();
+const {PORT} = process.env;
+//require("./src/DB_connection");
 
-const PORT = 3001;
 
-server.listen(PORT, () => {
-  console.log(`El Server está corriendo en: http://localhost:${PORT}`);
-});
+database.sync({force: true})
+        .then(()=>{
+            server.listen(PORT, ()=>{
+            console.log(`El Server está corriendo en: http://localhost:${PORT}`);
+             })
+
+})
+.catch(error => console.log(error));
 
 //! Código WebServer
 // const http = require("http");
