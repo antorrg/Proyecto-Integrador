@@ -36,7 +36,7 @@ const Form = ({login}) => {
             {errors.password && <p>{errors.password}</p>}
             <button>Submit</button>
             <hr></hr>
-            <p>(Dejo aquí los datos de ingreso para facilitarme la tarea hasta terminar el proyecto) Email: "abs@gmail.com"; Pass: "123456".</p>
+            <p>Proximamente también tendrá un SignIn.</p>
     </form>
     </div>
   );

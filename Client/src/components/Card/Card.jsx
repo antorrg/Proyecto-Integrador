@@ -7,7 +7,7 @@ import {useState, useEffect} from 'react';
 
 
 const Card =({character, onClose, addFavorites, removeFavorites, myFavorites})=> {
-   const { id, name, image, gender} = character;
+   const { id, name, image, gender, status, species} = character;
    //console.log(character, onClose);
   
    useEffect(() => {
@@ -28,7 +28,7 @@ const Card =({character, onClose, addFavorites, removeFavorites, myFavorites})=>
       }
       else{
         setIsFav(true);
-        addFavorites({id, name,image,gender});
+        addFavorites({id, name,image,gender,status,species});
       }
    }
    

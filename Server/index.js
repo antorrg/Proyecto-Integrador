@@ -1,18 +1,19 @@
 const server = require("./app");
-const {database} = require("./src/DB_connection");
+const {database} = require("./src/database");
 require("dotenv").config();
 const {PORT} = process.env;
-//require("./src/DB_connection");
 
+   
+        server.listen(PORT, async()=>{
+            try {
+                await database.sync({force:false}),
+            console.log(`Server corriendo en el puerto ${PORT}`);
+            
+            } catch (error) {
+                console.log(error)
+            }
+          })
 
-database.sync({force: true})
-        .then(()=>{
-            server.listen(PORT, ()=>{
-            console.log(`El Server está corriendo en: http://localhost:${PORT}`);
-             })
-
-})
-.catch(error => console.log(error));
 
 //! Código WebServer
 // const http = require("http");
