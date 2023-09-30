@@ -9,7 +9,7 @@ export default function validation({email, password}){
     if(!email){
         errors.email = "debe ingresar un email";
     }
-    if(email.length < 35){
+    if(email.length > 35){
         errors.email = "el email no debe superar los 35 caracteres";
     }
     if(!regexPassN.test(password)){

@@ -1,9 +1,11 @@
 import {ADD_FAV, REMOVE_FAV, FILTER,ORDER}from "./action-types";
 import axios from "axios";
+import {URL_NEW} from "../App";
+
 
 export const addFav = (character) => async (dispatch) => {
    try {
-     const endpoint = "http://localhost:3001/rickandmorty/fav";
+     const endpoint = `${URL_NEW}fav`;
      const { data } = await axios.post(endpoint, character);
  
      dispatch({
@@ -33,7 +35,7 @@ export const addFav = (character) => async (dispatch) => {
 
 
 export const removeFav = (id) => {
-   const endpoint = "http://localhost:3001/rickandmorty/fav/" + id;
+   const endpoint = `${URL_NEW}fav/` + id;
    return async (dispatch) => {
      try {
        const { data } = await axios.delete(endpoint);

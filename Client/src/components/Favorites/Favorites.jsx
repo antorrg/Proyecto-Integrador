@@ -27,7 +27,6 @@ const Favorites = () => {
 
   return (   
     <div className={styles.favorites}> 
-
       <select onChange={handleOrder}>
         <option value='Ascendente'>ASCENDENTE</option>
         <option value = 'Descendente'>DESCENDENTE</option>
@@ -36,6 +35,7 @@ const Favorites = () => {
         {optionGender.map(option=>
           <option value={option} key={option}>{option}</option>)}
       </select>
+      <div className={styles.container}>
       {myFavorites?.map((favorite) => (
         <Card
           key={favorite.id}
@@ -43,6 +43,7 @@ const Favorites = () => {
           character= {favorite}
         />
       ))}
+    </div>
     </div>
   );
  

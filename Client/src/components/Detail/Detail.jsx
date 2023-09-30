@@ -2,7 +2,7 @@ import axios from "axios";
 import {useEffect, useState } from "react";
 import {useParams} from "react-router-dom";
 import style from "./Detail.module.css"
-
+import {URL_NEW} from "../../App";
 
 
 
@@ -11,7 +11,7 @@ const Detail =()=>{
     const [character, setCharacter] = useState({});
     const {id} = useParams();
     useEffect(() => {
-        axios(`http://localhost:3001/rickandmorty/character/${id}`).then(({ data }) => {
+        axios(`${URL_NEW}character/${id}`).then(({ data }) => {
            if (data.name) {
               setCharacter(data);
            } else {

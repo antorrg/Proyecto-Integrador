@@ -11,8 +11,9 @@ import Detail from "./components/Detail/Detail";
 import About from "./components/About/About";
 import Favorites from "./components/Favorites/Favorites"
 
+
 const URL_BASE = "https://rickandmortyapi.com/api/character";
-const URL_NEW = "http://localhost:3001/rickandmorty/character/${id}";
+const URL_NEW = "http://localhost:3001/rickandmorty/";
 const API_KEY= "";
 const email = "abs@gmail.com";
 const password = "123456";
@@ -34,7 +35,7 @@ function App() {
   const URL = "http://localhost:3001/rickandmorty/login/";
   try {
     const { data } = await axios(
-      URL + `?email=${email}&password=${password}`
+      `${URL_NEW}login?email=${email}&password=${password}`
     );
     const { access } = data;
     setAccess(data);
@@ -65,7 +66,7 @@ function App() {
     alert("Por favor, ingrese un número como ID.");
     return;
   }
-   try {const {data} = await axios(`http://localhost:3001/rickandmorty/character/${id}`);
+   try {const {data} = await axios(`${URL_NEW}character/${id}`);
    const characterExists = characters.some((character) => character.id === data.id);
    if (data.id) {
      if (characterExists) {
@@ -131,4 +132,7 @@ function App() {
   );
 }
 
-export default App;
+export {
+  App,
+  URL_NEW
+};
