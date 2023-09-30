@@ -11,23 +11,31 @@
 }
 .text{
     background-image: url('../../assets/pergamino.png');
+    background-repeat: no-repeat;
+    background-position: top center;
     align-content: center;
-    margin-left: 30% ;
-    margin-right: 30%;
+    margin-left: 20% ;
+    margin-right: 20%;
     font-family: 'Lucida Calligraphy';
-    font-size: 18px;
+    font-size: 16px;
     margin-top: 1%;
     align-self: center;
     text-align: center;
     text-decoration-color: black;
-    padding: 40 px; /* Espaciado interno para separar el contenido del borde */
+    padding: 3rem; /* Espaciado interno para separar el contenido del borde */
     border: 0px solid #ccc; /* Borde del cuadro de texto */
     border-radius: 5px; /* Bordes redondeados para suavizar la apariencia */
     .title{
-        padding-top: 4rem;
+        font-size: 1,5rem;
+        padding-top: 2rem;
+        text-align: center;
+        margin-left: 10%;
+        margin-right: 20%;
     }
     .letter{
-        margin-left: 3% ;
-        margin-right: 10%;  
+        font-size: 0.9rem;
+        margin-left: 15% ;
+        margin-right: 20%;  
     }
+   
 }

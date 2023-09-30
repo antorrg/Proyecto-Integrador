@@ -22,15 +22,18 @@ const Detail =()=>{
      }, [id]);
      
     return(
-        <div>
+        <div className={style.cont}>
         
-                <div className={style.text}>
-                 <h2>Name: {character?.name}</h2>
-                 <h2>Status: {character?.status}</h2>
-                 <h2>Specie: {character?.species}</h2>
-                 <h2>Gender: {character?.gender}</h2>
-                 <h2>Origin: {character.origin?.name}</h2>
+                <div>
                  <img src={character?.image} alt={character?.name} />
+                 </div>
+                 <div className={style.text}>
+                 <h1> {character?.name}</h1>
+                 <h3>Id:     {character.id}</h3>
+                 <h3>Status: {character?.status}</h3>
+                 <h3>Specie: {character?.species}</h3>
+                 <h3>Gender: {character?.gender}</h3>
+                 <h3>Origin: {character.origin?.name}</h3>
                </div>
     
         
