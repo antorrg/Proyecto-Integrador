@@ -7,7 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   
 padding: 0;
-background-image: url('./assets/nav.png'); /* Reemplaza 'tu-imagen.jpg' con la ruta de tu imagen */
+background-image: url('./assets/nav.png');
 background-size: contain;
 background-repeat: repeat;
 background-attachment: fixed;

@@ -1,6 +1,9 @@
 import styles from './Form.module.css';
 import {useState}from 'react';
 import validation from '../validation/validation';
+import { NavLink } from 'react-router-dom';
+
+
 //Formulario para iniciar sesión
 const Form = ({login}) => {
     const [errors, setErrors] = useState({});
@@ -24,9 +27,9 @@ const Form = ({login}) => {
     
     
     return (
-    <div className={styles.body}>
+    <div className={styles.container}>
     <form onSubmit={handleSubmit} className={styles.text}>
-            
+            <h5>Para ingresar debe tener una cuenta</h5>
             <label htmlFor="email">Email: </label>
             <input type="email"name ="email" value={userData.email} onChange={handleChange}/>
             {errors.email && <p>{errors.email}</p>}
@@ -34,9 +37,11 @@ const Form = ({login}) => {
             <label htmlFor="password">Password: </label>
             <input type="text" name = 'password' value={userData.password} onChange={handleChange}/>
             {errors.password && <p>{errors.password}</p>}
-            <button>Submit</button>
+            <button>SignIn</button>
             <hr></hr>
-            <p>Proximamente también tendrá un SignIn.</p>
+            
+            
+            <hr></hr>
     </form>
     </div>
   );
